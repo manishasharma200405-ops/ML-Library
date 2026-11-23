@@ -1,0 +1,6 @@
+Rows after cleaning: 1217
+R2 (log price): 0.930
+MAE (USD):      19,811
+Median abs % error: 10.2%
+Saved car_price_model.joblib
+Example prediction: $63,481
