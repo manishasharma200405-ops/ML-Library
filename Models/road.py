@@ -1,5 +1,5 @@
 """Creates road.mp4 - a fake road where the car slowly drifts left and right.
-Run it once (press Run), then run lane_detection.py with SOURCE = "road.mp4".
+
 """
 import os
 import cv2
