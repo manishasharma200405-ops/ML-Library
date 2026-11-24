@@ -4,7 +4,7 @@ import os
 import cv2
 import numpy as np
 
-SOURCE = "road1.mp4"
+SOURCE = "road4.mp4"
 SAVE_OUTPUT = True           
 LANE_WIDTH_M = 3.7          
 DRIFT_LIMIT_M = 0.35        
@@ -22,7 +22,7 @@ def region_of_interest(edges):
 
 
 def make_line(h, fit):
-    """Turn (slope, intercept) into endpoints from the bottom up to 60% of the height."""
+    
     slope, intercept = fit
     y1, y2 = h, int(h * 0.60)
     x1, x2 = int((y1 - intercept) / slope), int((y2 - intercept) / slope)
@@ -30,7 +30,7 @@ def make_line(h, fit):
 
 
 def average_lanes(lines, h):
-    """Split Hough lines into left/right lane by slope and average each side."""
+   
     left, right = [], []
     if lines is None:
         return None, None
@@ -70,7 +70,6 @@ def process_frame(frame):
                         [right[2], right[3]], [right[0], right[1]]], dtype=np.int32)
         cv2.fillPoly(overlay, [pts], (0, 120, 0))
 
-        # where is the car  relative to the lane center at the bottom?
         lane_center = (left[0] + right[0]) / 2
         lane_px = max(right[0] - left[0], 1)
         offset_m = (w / 2 - lane_center) * (LANE_WIDTH_M / lane_px)   # + means car is right of center
