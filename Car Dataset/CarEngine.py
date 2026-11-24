@@ -1,6 +1,5 @@
 """Decision Tree model for car prices.
-Open in VS Code and press the Run button (triangle at top right).
-Keep this file, train.py and Cars_Datasets_2025.csv in the same folder.
+
 """
 import os
 import numpy as np
@@ -34,7 +33,7 @@ pipe = Pipeline([("pre", pre), ("tree", DecisionTreeRegressor(random_state=42))]
 
 X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# find the best tree size (a tree that is too deep memorizes the data)
+# find the best tree size== (a tree that is too deep memorizes the data)
 grid = GridSearchCV(
     pipe,
     {"tree__max_depth": [3, 5, 7, 10, None],

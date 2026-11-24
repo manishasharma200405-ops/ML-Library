@@ -1,5 +1,5 @@
 """Car price prediction model.
-Run: python train.py
+
 """
 import re
 import joblib
@@ -58,7 +58,7 @@ def main():
     print(f"Rows after cleaning: {len(df)}")
 
     X = df.drop(columns="price")
-    y = np.log1p(df["price"])  # prices are heavily skewed -> predict log price
+    y = np.log1p(df["price"])  # prices are heavily skewed, predict log price
 
     cat_cols = ["company", "engine", "fuel"]
     num_cols = ["seats", "cc", "hp", "top_speed", "acc_0_100", "torque"]
